@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Assigment</string>
+    <string name="not_registered">not_registered</string>
+    <string name="register">register</string>
+</resources>
