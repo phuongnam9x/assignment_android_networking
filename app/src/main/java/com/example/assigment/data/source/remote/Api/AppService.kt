@@ -1,22 +1,24 @@
 package com.example.assigment.data.source.remote.Api
 
-import com.example.assigment.data.Model.Users
+import com.example.assigment.data.model.Users
 import com.example.assigment.data.source.remote.response.BaseResponse
 import com.example.assigment.data.source.remote.response.LoginResponse
+import com.example.assigment.data.source.remote.response.ProductsResponse
 import com.example.assigment.data.source.remote.response.RegisterResponse
-import retrofit2.http.Body
-import retrofit2.http.Field
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface AppService {
-    @POST("")
+    @FormUrlEncoded
+    @POST("/api/user/login")
     suspend fun login(
         @Field("user_name") userName: String,
         @Field("password") password: String
-    ):BaseResponse<LoginResponse>
+    ): BaseResponse<LoginResponse>
 
 
-    @POST("")
-    suspend fun register(@Body  Users: Users):BaseResponse<RegisterResponse>
+    @POST("/api/user/register")
+    suspend fun register(@Body Users: Users): BaseResponse<RegisterResponse>
+
+    @GET("/api/product/all")
+    suspend fun getProducts(): BaseResponse<ProductsResponse>
 }

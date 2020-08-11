@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:layout_margin="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        >
+
+        <ImageView
+            android:id="@+id/imgTest"
+            android:layout_width="100dp"
+            android:layout_height="100dp"/>
+            <TextView
+                android:id="@+id/tvTest"
+                android:layout_width="match_parent"
+                android:text="ABC"
+                android:textColor="#333"
+                android:layout_toRightOf="@id/imgTest"
+                android:textSize="28sp"
+                android:layout_height="wrap_content"
+                />
+
+        <TextView
+            android:id="@+id/tvsoluong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvTest"
+            android:layout_toRightOf="@id/imgTest"
+            android:text="Số lượng"
+            android:gravity="right"
+            android:textColor="#333"
+            android:textSize="30sp"
+
+            />
+
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

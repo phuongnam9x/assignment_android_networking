@@ -1,81 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/logo1" />
 
     <TextView
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:text="Register"
-        android:textSize="30dp"
-        android:layout_marginTop="60dp"
         android:textColor="#fff"
-        android:textStyle="bold"
-        />
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
     <EditText
-        android:id="@+id/rg_user"
-        android:layout_marginTop="25dp"
+        android:id="@+id/rg_full_name"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:hint="username"
-        android:paddingLeft="20dp"
         android:layout_gravity="center"
+        android:layout_marginTop="25dp"
         android:background="@drawable/rounded_edittext"
-        />
+        android:hint="  Username"
+        android:paddingLeft="20dp"
+        android:drawableLeft="@drawable/username"/>
+
     <EditText
-    android:id="@+id/rg_gmail"
-    android:layout_width="300dp"
-    android:layout_height="50dp"
-    android:hint="Gmail"
-    android:layout_gravity="center"
-    android:background="@drawable/rounded_edittext"
-    android:layout_marginTop="15dp"
-    android:paddingLeft="20dp"
-    />
+        android:id="@+id/rg_user_name"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/rounded_edittext"
+        android:hint="  Gmail"
+        android:paddingLeft="20dp"
+        android:drawableLeft="@drawable/username"/>
+
     <EditText
         android:id="@+id/rg_pw1"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:hint="password"
         android:layout_gravity="center"
-        android:background="@drawable/rounded_edittext"
         android:layout_marginTop="15dp"
-        android:paddingLeft="20dp"
-        />
-    <EditText
-        android:id="@+id/rg_pw2"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:hint="confilm password"
-        android:layout_gravity="center"
         android:background="@drawable/rounded_edittext"
-        android:layout_marginTop="15dp"
+        android:hint="  Password"
         android:paddingLeft="20dp"
-        />
+        android:drawableLeft="@drawable/password"/>
+
     <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/roleId"
-        android:layout_marginLeft="55dp"
-        android:layout_marginTop="10dp"
-        />
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign up"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:buttonTint="@android:color/white"
+        android:text="admin"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="170dp"
+        android:layout_height="35dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="18dp"
-        android:id="@+id/btnLogin"
         android:background="@drawable/rounded_button"
-        />
+        android:text="Sign up"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="25dp" />
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="Come back to"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/textview_Login"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:paddingLeft="10dp"
+            android:text="Login"
+            android:textColor="#FF5722"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
 
 </LinearLayout>

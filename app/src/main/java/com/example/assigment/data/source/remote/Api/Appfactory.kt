@@ -22,7 +22,7 @@ class Appfactory {
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
             .build()
         private val retrofitBuilder = Retrofit.Builder()
-            .baseUrl("http://www.google.com/")
+            .baseUrl("http://192.168.1.53:5000")
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
