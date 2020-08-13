@@ -1,5 +1,6 @@
 package com.example.assigment.UI.Login
 
+import android.app.Application
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -35,8 +36,9 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val application=Application()
         appRepository =
-            AppRepository.getInstance(AppRemoteDataSource.getInstance(Appfactory.instance))
+            AppRepository.getInstance(AppRemoteDataSource.getInstance(Appfactory.instance,application))
         initView()
     }
 

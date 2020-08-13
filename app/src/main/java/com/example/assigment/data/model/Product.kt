@@ -15,5 +15,7 @@ data class Product(
     @SerializedName("image_path")
     val imagePath: String = "",
     @SerializedName("date")
-    val date: String = ""
+    val date: String = "",
+    @SerializedName("price")
+    val price: String = ""
 ) : Parcelable

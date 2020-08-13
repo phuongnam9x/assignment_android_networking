@@ -1,13 +1,16 @@
 package com.fpoly.assignemnt_gd1.ui.home
 
+import android.app.Application
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.assigment.R
+import com.example.assigment.UI.addAndEdit.AddAndEditProduct
 import com.example.assigment.data.Repository.AppRepository
 import com.example.assigment.data.source.remote.Api.Appfactory
 import com.example.assigment.data.source.remote.AppRemoteDataSource
@@ -24,8 +27,9 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val application=Application()
         appRepository =
-            AppRepository.getInstance(AppRemoteDataSource.getInstance(Appfactory.instance))
+            AppRepository.getInstance(AppRemoteDataSource.getInstance(Appfactory.instance,application))
     }
 
     override fun onCreateView(
@@ -57,10 +61,27 @@ class HomeFragment : Fragment() {
         homeRecyclerView.layoutManager = LinearLayoutManager(activity)
         homeAdapter= HomeAdapter(this).apply {
             onItemClick = {
-                Toast.makeText(activity, "${it.title}", Toast.LENGTH_SHORT).show()
+                activity?.run {
+                    supportFragmentManager
+                        .beginTransaction()
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .replace(R.id.main, AddAndEditProduct.getInstance(it))
+                        .addToBackStack(null)
+                        .commit()
+                }
             }
         }
         homeRecyclerView.adapter =homeAdapter
+        homeFloatingActionButton.setOnClickListener {
+            activity?.run {
+                supportFragmentManager
+                    .beginTransaction()
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .replace(R.id.main, AddAndEditProduct.getInstance(null))
+                    .addToBackStack(null)
+                    .commit()
+            }
+        }
     }
 
 

@@ -42,6 +42,7 @@ class HomeAdapter(private val fragment: Fragment) :
             itemView.run{
                 productTitleTextView.text=itemData.title
                 productDeceptionTextView.text=itemData.deception
+                productPrimeTextView.text=itemData.price  +  "  VND"
                 Glide
                     .with(this.context)
                     .load("http://192.168.1.53:5000/public/image/"+itemData.imagePath)

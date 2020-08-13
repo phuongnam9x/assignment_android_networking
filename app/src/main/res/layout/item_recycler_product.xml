@@ -11,7 +11,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@android:color/background_dark"
+        android:background="@drawable/rounded_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="w,1.2"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,15 +46,31 @@
         app:layout_constraintStart_toEndOf="@+id/productImageView"
         app:layout_constraintTop_toBottomOf="@+id/productTitleTextView" />
 
+
+    <TextView
+        android:id="@+id/productPrimeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:text="2000000 vnd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.134"
+        android:textColor="@android:color/black"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/productImageView" />
+
     <Button
         android:id="@+id/deleteProductButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:background="@android:color/holo_red_dark"
         android:text="Delete"
+        android:background="@drawable/delete"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.798"
         app:layout_constraintStart_toEndOf="@+id/productImageView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

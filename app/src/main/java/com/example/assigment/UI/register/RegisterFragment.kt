@@ -1,5 +1,6 @@
 package com.example.assigment.UI.register
 
+import android.app.Application
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -31,8 +32,9 @@ class RegisterFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val application= Application()
         appRepository =
-            AppRepository.getInstance(AppRemoteDataSource.getInstance(Appfactory.instance))
+            AppRepository.getInstance(AppRemoteDataSource.getInstance(Appfactory.instance,application))
         btnRegister.setOnClickListener(this)
     }
 
