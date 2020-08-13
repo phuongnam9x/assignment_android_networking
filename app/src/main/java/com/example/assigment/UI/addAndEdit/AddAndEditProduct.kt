@@ -17,6 +17,7 @@ import androidx.lifecycle.lifecycleScope
 import com.amulyakhare.textdrawable.TextDrawable
 import com.amulyakhare.textdrawable.util.ColorGenerator
 import com.bumptech.glide.Glide
+import com.example.assigment.MainApplication
 import com.example.assigment.R
 import com.example.assigment.data.Repository.AppRepository
 import com.example.assigment.data.model.Product
@@ -37,14 +38,10 @@ class AddAndEditProduct : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val application = Application()
-        appRepository =
-            AppRepository.getInstance(
-                AppRemoteDataSource.getInstance(
-                    Appfactory.instance,
-                    application
-                )
-            )
+        context?.let {
+            appRepository =
+                AppRepository.getInstance(AppRemoteDataSource.getInstance(Appfactory.instance,it))
+        }
     }
 
     override fun onCreateView(

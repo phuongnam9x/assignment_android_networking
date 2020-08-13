@@ -1,6 +1,7 @@
 package com.example.assigment.data.source.remote
 
 import android.app.Application
+import android.content.Context
 import android.net.Uri
 import android.provider.OpenableColumns
 import com.example.assigment.data.model.Users
@@ -20,7 +21,7 @@ import java.io.ByteArrayOutputStream
 
 class AppRemoteDataSource private constructor(
     private val appService: AppService,
-    private val application: Application
+    private val application: Context
 ) :
     AppDataSource.Remote {
     override suspend fun login(userName: String, password: String): BaseResponse<LoginResponse> {
@@ -87,7 +88,7 @@ class AppRemoteDataSource private constructor(
 
     companion object {
         private var INSTANCE: AppRemoteDataSource? = null
-        fun getInstance(appService: AppService, application: Application): AppRemoteDataSource =
+        fun getInstance(appService: AppService, application: Context): AppRemoteDataSource =
             INSTANCE ?: synchronized(this) {
                 INSTANCE ?: AppRemoteDataSource(appService, application).also { INSTANCE = it }
             }

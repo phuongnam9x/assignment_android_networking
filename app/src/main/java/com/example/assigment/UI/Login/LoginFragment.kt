@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.example.assigment.MainActivity
+import com.example.assigment.MainApplication
 import com.example.assigment.R
 import com.example.assigment.UI.Login.LoginFragment.Companion.newInstance
 import com.example.assigment.UI.register.RegisterFragment
@@ -25,7 +26,13 @@ import com.example.assigment.data.Repository.AppRepository as AppRepository
 
 class LoginFragment : Fragment() {
     private lateinit var appRepository: AppRepository
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        context?.let {
+            appRepository =
+                AppRepository.getInstance(AppRemoteDataSource.getInstance(Appfactory.instance,it))
+        }
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -36,9 +43,6 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val application=Application()
-        appRepository =
-            AppRepository.getInstance(AppRemoteDataSource.getInstance(Appfactory.instance,application))
         initView()
     }
 

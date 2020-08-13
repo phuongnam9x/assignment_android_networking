@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.example.assigment.MainApplication
 import com.example.assigment.R
 import com.example.assigment.UI.Login.LoginFragment
 import com.example.assigment.data.model.Users
@@ -22,6 +23,13 @@ import kotlinx.coroutines.withContext
 
 class RegisterFragment : Fragment(), View.OnClickListener {
     private lateinit var appRepository: AppRepository
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        context?.let {
+            appRepository =
+                AppRepository.getInstance(AppRemoteDataSource.getInstance(Appfactory.instance,it))
+        }
+    }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -32,9 +40,6 @@ class RegisterFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val application= Application()
-        appRepository =
-            AppRepository.getInstance(AppRemoteDataSource.getInstance(Appfactory.instance,application))
         btnRegister.setOnClickListener(this)
     }
 

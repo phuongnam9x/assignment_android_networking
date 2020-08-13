@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.assigment.MainApplication
 import com.example.assigment.R
 import com.example.assigment.UI.addAndEdit.AddAndEditProduct
 import com.example.assigment.data.Repository.AppRepository
@@ -27,9 +28,10 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val application=Application()
-        appRepository =
-            AppRepository.getInstance(AppRemoteDataSource.getInstance(Appfactory.instance,application))
+        context?.let {
+            appRepository =
+                AppRepository.getInstance(AppRemoteDataSource.getInstance(Appfactory.instance,it))
+        }
     }
 
     override fun onCreateView(
