@@ -9,6 +9,7 @@ import com.example.assigment.data.source.remote.response.ProductsResponse
 import com.example.assigment.data.source.remote.response.RegisterResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import retrofit2.http.Query
 
 class AppRepository private constructor(
     private val remote: AppDataSource.Remote
@@ -52,6 +53,11 @@ class AppRepository private constructor(
     suspend fun deleteProduct(id: String): BaseResponse<Any> {
         return withContext(Dispatchers.IO) {
             remote.deleteProduct(id)
+        }
+    }
+    suspend fun getProductByName( title: String?): BaseResponse<ProductsResponse>{
+        return withContext(Dispatchers.IO) {
+            remote.getProductByName(title)
         }
     }
 

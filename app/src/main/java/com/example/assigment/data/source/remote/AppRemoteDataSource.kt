@@ -63,6 +63,12 @@ class AppRemoteDataSource private constructor(
         return withContext(Dispatchers.IO) { appService.deleteProduct(id) }
     }
 
+    override suspend fun getProductByName(title: String?): BaseResponse<ProductsResponse> {
+        return withContext(Dispatchers.IO){
+            appService.getProductByName(title)
+        }
+    }
+
     private suspend fun uploadAvatar(image: Uri?): String? {
         return withContext(Dispatchers.IO) {
             if (image != null) {

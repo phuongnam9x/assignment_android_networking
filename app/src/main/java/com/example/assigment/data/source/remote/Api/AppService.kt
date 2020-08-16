@@ -37,4 +37,7 @@ interface AppService {
 
     @POST("api/product/delete/{id}")
     suspend fun deleteProduct(@Path("id") id: String): BaseResponse<Any>
+
+    @GET("api/product/find")
+    suspend fun getProductByName(@Query("query") title: String?): BaseResponse<ProductsResponse>
 }

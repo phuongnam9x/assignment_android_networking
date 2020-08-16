@@ -7,6 +7,7 @@ import com.example.assigment.data.source.remote.response.BaseResponse
 import com.example.assigment.data.source.remote.response.LoginResponse
 import com.example.assigment.data.source.remote.response.ProductsResponse
 import com.example.assigment.data.source.remote.response.RegisterResponse
+import retrofit2.http.Query
 
 interface AppDataSource {
 
@@ -31,5 +32,6 @@ interface AppDataSource {
         ): BaseResponse<Any>
 
         suspend fun deleteProduct(id: String): BaseResponse<Any>
+        suspend fun getProductByName( title: String?): BaseResponse<ProductsResponse>
     }
 }
