@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.item_recycler_product.view.*
 class HomeAdapter(private val fragment: Fragment) :
     ListAdapter<Product, HomeAdapter.ViewHolder>(ProductDiffUtilCallback()) {
     var onItemClick: (Product) -> Unit = { _ -> }
+    var onDelete: (String) -> Unit = { _ -> }
 
     override fun getItemViewType(position: Int) = R.layout.item_recycler_product
 
@@ -54,7 +55,7 @@ class HomeAdapter(private val fragment: Fragment) :
                 onItemClick(itemData)
             }
             itemView.deleteProductButton.setOnClickListener {
-                Toast.makeText(itemView.context, "Add ${itemData.title} to cart", Toast.LENGTH_SHORT).show()
+              onDelete(itemData.id)
             }
         }
     }

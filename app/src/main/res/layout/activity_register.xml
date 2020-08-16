@@ -74,31 +74,8 @@
         android:background="@drawable/rounded_button"
         android:text="Sign up"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="25dp" />
-    <LinearLayout
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
+        android:textSize="15dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:text="Come back to"
-            android:textColor="#ffffff" />
-
-        <TextView
-            android:id="@+id/textview_Login"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:paddingLeft="10dp"
-            android:text="Login"
-            android:textColor="#FF5722"
-            android:textStyle="bold" />
-
-
-    </LinearLayout>
 
 
 </LinearLayout>

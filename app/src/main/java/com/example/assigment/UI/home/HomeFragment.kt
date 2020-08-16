@@ -15,6 +15,8 @@ import com.example.assigment.UI.addAndEdit.AddAndEditProduct
 import com.example.assigment.data.Repository.AppRepository
 import com.example.assigment.data.source.remote.Api.Appfactory
 import com.example.assigment.data.source.remote.AppRemoteDataSource
+import com.example.assigment.goBackFragment
+import com.example.assigment.snack
 import com.fpoly.code4fun.ui.home.HomeAdapter
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.Dispatchers
@@ -46,7 +48,6 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initView()
         handleData()
-
     }
 
     private fun handleData() {
@@ -57,7 +58,19 @@ class HomeFragment : Fragment() {
            }
        }
     }
-
+    private fun handleDelete(id:String) {
+        GlobalScope.launch(Dispatchers.IO) {
+            val response=appRepository.deleteProduct(id)
+            withContext(Dispatchers.Main){
+                if(response.statusCode==200){
+                    view?.snack("Delete successfully!")
+                    handleData()
+                }else{
+                    view?.snack("ERROR:"+response.message)
+                }
+            }
+        }
+    }
     private fun initView() {
         homeRecyclerView.setHasFixedSize(true)
         homeRecyclerView.layoutManager = LinearLayoutManager(activity)
@@ -71,6 +84,9 @@ class HomeFragment : Fragment() {
                         .addToBackStack(null)
                         .commit()
                 }
+            }
+            onDelete={
+                handleDelete(it)
             }
         }
         homeRecyclerView.adapter =homeAdapter
